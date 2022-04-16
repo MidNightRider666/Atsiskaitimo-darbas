@@ -4,35 +4,35 @@ import CardList from '../../components/CardList/CardList';
 import Button from '../../components/UI/Button/Button';
 import Container from '../../components/UI/Container';
 import { getFetch } from '../../helper/getFect';
+import css from './Home.module.scss'
 
 
 
 
 function Home() {
 
-  // const [skillArr, setSkillArr] = useState([]);
 
-  // useEffect(() => {
-  //   getSkills();
-  // }, [])
+  const [skillArr, setSkillArr] = useState([]);
+  useEffect(() => {
+    getSkills();
+  }, [])
 
   
-  // async function getSkills(){
-  //   const skillFromDB = await getFetch('content/skills')
-  //   console.log('skillFromDB===', skillFromDB);
-  //   setSkillArr(skillFromDB)
-  // }
-
+  async function getSkills(){
+    const skillFromDB = await getFetch('content/skills')
+    console.log('skillFromDB===', skillFromDB);
+    setSkillArr(skillFromDB)
+  }
+  
   return (
     <Container>
-    <div>
+    <div className={css.flex}>
     <h1>Skills List</h1>
     <Link to={'/Add'}>
-      Add Skills
       <Button>Add skills</Button>
     </Link>
     </div>
-    <CardList/>
+    <CardList  item={skillArr}/>
     </Container>
   )
 }

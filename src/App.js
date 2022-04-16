@@ -12,13 +12,13 @@ function App() {
     <div className="App">
       <Header/>
       <Route path={'/'} exact>
-        <Home />
+      <Register />
       </Route>
       <Route path={'/Login'}>
         <Login />
       </Route>
-      <Route path={'/Register'}>
-        <Register />
+      <Route path={'/Home'}>
+      <Home />
       </Route>
       <Route path={'/Add'}>
         <Add />
