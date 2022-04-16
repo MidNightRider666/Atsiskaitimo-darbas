@@ -1,0 +1,10 @@
+GET https://autumn-delicate-wilderness.glitch.me/v1/content/skills
+
+###
+POST https://autumn-delicate-wilderness.glitch.me/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "asus@email.com",
+  "password": "verysecret125"
+}
