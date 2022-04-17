@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import './App.css';
@@ -8,20 +9,40 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound';
 import Register from './pages/Register/Register';
+import AuthContext from './store/AuthContx';
 
 function App() {
+
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  function login(){
+    console.log('Login');
+    setIsUserLoggedIn(true);
+  }
+  function logout(){
+    console.log('logout');
+    setIsUserLoggedIn(false)
+  }
+
+  const ctxValue = {
+    isUserLoggedIn,
+    login,
+    logout,
+  }
+
+
   return (
+    <AuthContext.Provider value={ctxValue} >
     <div className="App">
       <Header/>
       <Switch>
       <Route path={'/'} exact>
-      <Register />
+      <Home />
       </Route>
       <Route path={'/Login'}>
         <Login />
       </Route>
-      <Route path={'/Home'}>
-      <Home />
+      <Route path={'/Register'}>
+      <Register />
       </Route>
       <Route path={'/Add'}>
         <Add />
@@ -31,6 +52,7 @@ function App() {
       </Route>
       </Switch>
     </div>
+    </AuthContext.Provider>
   );
 }
 

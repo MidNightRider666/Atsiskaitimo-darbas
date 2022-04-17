@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/UI/Button/Button'
 import Container from '../../components/UI/Container'
 import { postFecth } from '../../helper/postFecth';
+import AuthContext from '../../store/AuthContx';
 import css from './Login.module.scss'
 
 const initErrors = {
@@ -11,11 +12,13 @@ const initErrors = {
 }
 
 function Login() {
+  const authCtx = useContext(AuthContext)
   const history = useHistory();
   const [userEmail, setUserEmail] = useState('asus@email.com')
   const [userPassword, setUserPassword] = useState('verysecret125')
   const [isError, setisError] = useState(false)
   const [errorObj, seterrorObj] = useState(initErrors)
+  const [noAccount, setNoAccount] = useState('')
    
 useEffect(() => {
   const isErrorsEmpty = Object.values(errorObj).every((el) => el === '');
@@ -44,9 +47,11 @@ useEffect(() => {
    console.log('sendResult===', sendResult);
    if(sendResult.err) {
      setisError(true)
+     setNoAccount(sendResult.err)
    }
    else {
-     history.push('/Home')
+     history.push('/')
+     authCtx.login();
    }
   }
 
@@ -56,9 +61,10 @@ useEffect(() => {
   <form onSubmit={submitHandler} className={css.form}>
           {isError && <h3 className={css.err}>Check The Form</h3>}
       <input onChange={(e) => setUserEmail(e.target.value)} value={userEmail} className={`${css.input} ${errorObj.userEmail ? css.errBg: ''}`} type="email" placeholder='email' />
-      {errorObj.userEmail && <p>{errorObj.userEmail}</p>}
+      {errorObj.userEmail && <p className={css.errorText}>{errorObj.userEmail}</p>}
       <input onChange={(e) => setUserPassword(e.target.value)} value={userPassword} className={`${css.input} ${errorObj.userPassword ? css.errBg: ''}`} type="password" placeholder='password' />
-      {errorObj.userPassword && <p>{errorObj.userPassword}</p>}
+      {errorObj.userPassword && <p className={css.errorText}>{errorObj.userPassword}</p>}
+      <h3>{noAccount}</h3>
       <Button>Login</Button>
   </form>
 </Container>

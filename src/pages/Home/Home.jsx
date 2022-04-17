@@ -9,11 +9,14 @@ import { getFetch } from '../../helper/getFect';
 import css from './Home.module.scss'
 
 
+
+
 function Home() {
   const history = useHistory();
-  const token = localStorage.getItem('token');
   const [isLoading, setIsLoading] = useState(false);
   const [skillArr, setSkillArr] = useState([]);
+  const [errorFromBE, setErrorFromBE] = useState('');
+
   useEffect(() => {
     getSkills();
   }, [])
@@ -23,23 +26,32 @@ function Home() {
     setIsLoading(true);
     const skillFromDB = await getFetch('content/skills')
     console.log('skillFromDB===', skillFromDB);
+    const FailedToken = skillFromDB.err
     setSkillArr(skillFromDB)
+    console.log('FailedToken===', FailedToken);
+    setErrorFromBE(FailedToken)
     setIsLoading(false);
   }
 
-  if(isLoading) {return (<div className={css.loading}>
+
+  if(errorFromBE === 'Invalid Token') {
+    return (
+    <Container>
+    <div className={css.flex}>
+    <h1 className={css.noToken}>Skills are only for registered users. If you have an account please log in</h1>
+    </div>
+    </Container>
+    )
+  }
+
+  if(isLoading) {
+    return (<div className={css.loading}>
     <Loading />
     </div>
   )}
 
-  if(token === null || token === undefined ) {
-    alert('This is rescrited for unregistered users')
-    history.push('/')
-  }
-
 
   if(skillArr.length <= 0  && !isLoading) {
-    console.log('skillArr===', skillArr);
     return (
       <Container>
     <h1>Skills are empty, please add some</h1>
@@ -50,6 +62,7 @@ function Home() {
     )
   }
 
+  if(errorFromBE === undefined) {
   return (
     <Container>
     <div className={css.flex}>
@@ -61,6 +74,7 @@ function Home() {
     <CardList  item={skillArr}/>
     </Container>
   )
+}
 }
 
 

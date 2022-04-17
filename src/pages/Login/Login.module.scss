@@ -27,6 +27,10 @@
     background-color: rgb(238, 45, 11);
     border-color: tomato ;
 }
+.errorText {
+    color: salmon;
+    text-transform: uppercase;
+}
 
 .form:focus-within {
     box-shadow: 4px 8px 4px 4px lightgreen;
