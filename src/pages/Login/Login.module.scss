@@ -4,6 +4,7 @@
     border: 1px solid lightgreen;
     padding: 20px;
     box-sizing: border-box;
+    transition: 0.5s;
 }
 
 .input {
@@ -25,4 +26,17 @@
 .errBg {
     background-color: rgb(238, 45, 11);
     border-color: tomato ;
+}
+
+.form:focus-within {
+    box-shadow: 4px 8px 4px 4px lightgreen;
+    color: salmon;
+    border: 1px solid lightblue;
+    background-color: aliceblue;
+    max-width: 500px;
+    height: 300px;
+    transition: 0.5s;
+}
+.input:focus {
+    background-color: lightgreen;
 }

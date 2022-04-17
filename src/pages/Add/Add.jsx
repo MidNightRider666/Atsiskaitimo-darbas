@@ -60,7 +60,7 @@ function Add() {
         {errorObj.skillsTitle && <p>{errorObj.skillsTitle}</p>}
         <textarea  onChange={(e) => setSkillsDescription(e.target.value)} value={skillsDescription} className={`${css.input} ${errorObj.skillsDescription ? css.errBg: ''}`} type="textarea" placeholder='description' />
         {errorObj.skillsDescription && <p>{errorObj.skillsDescription}</p>}
-        <Button>Add</Button>
+        <Button Add>Add</Button>
     </form>
   </Container>
   )

@@ -12,8 +12,8 @@ const initErrors = {
 
 function Login() {
   const history = useHistory();
-  const [userEmail, setUserEmail] = useState('')
-  const [userPassword, setUserPassword] = useState('')
+  const [userEmail, setUserEmail] = useState('asus@email.com')
+  const [userPassword, setUserPassword] = useState('verysecret125')
   const [isError, setisError] = useState(false)
   const [errorObj, seterrorObj] = useState(initErrors)
    

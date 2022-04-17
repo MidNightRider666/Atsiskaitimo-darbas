@@ -14,10 +14,9 @@
   .btn:hover{
       background-color: lightgreen;
       color: white;
-      border: 1px solid lightseagreen;
+    border: 1px solid lightseagreen;
      transition: 1s;
   }
-  
   .btn:active {
     transition: 0s;
     margin-top: 2px;
@@ -25,4 +24,10 @@
     transform: translateY(4px)
   }
 
+  .btn.Add:hover:after {
+    content: ' +' ;
+  }
 
+  .btn.AddFocus:hover::before {
+    content: 'X ';
+  }

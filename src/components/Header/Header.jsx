@@ -19,7 +19,7 @@ function Header() {
             <NavLink className={css.navLink} to={'/Home'}>
                 Home
             </NavLink> 
-            <Button>Logout</Button>
+            <Button AddFocus>Logout</Button>
         </nav>  
     </Container>
     <hr className='horizontal line'/>
