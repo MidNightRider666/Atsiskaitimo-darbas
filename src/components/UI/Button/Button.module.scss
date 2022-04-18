@@ -1,0 +1,33 @@
+.btn {
+    border: 1px solid lightgreen;
+    border-radius: 5px;
+    background-color: white;
+    color: lightgreen;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 0 0 lightseagreen;
+    transition: 1s;
+  }
+
+  .btn:hover{
+      background-color: lightgreen;
+      color: white;
+    border: 1px solid lightseagreen;
+     transition: 1s;
+  }
+  .btn:active {
+    transition: 0s;
+    margin-top: 2px;
+    box-shadow: 0 1px 0 0 lightseagreen;
+    transform: translateY(4px)
+  }
+
+  .btn.Add:hover:after {
+    content: ' +' ;
+  }
+
+  .btn.AddFocus:hover::before {
+    content: 'X ';
+  }
