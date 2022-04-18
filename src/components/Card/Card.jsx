@@ -1,10 +1,7 @@
-import React from 'react'
-import Button from '../UI/Button/Button'
-import css from './Card.module.scss'
+import React from "react";
+import css from "./Card.module.scss";
 
 function Card(props) {
-
-
   return (
     <div className={css.card}>
       <h3 className={css.header}>{props.title}</h3>
@@ -12,7 +9,7 @@ function Card(props) {
         <p>{props.description}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;

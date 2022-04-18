@@ -1,10 +1,10 @@
-import React, { createContext } from 'react'
+import React, { createContext } from "react";
 
 const AuthContext = createContext({
-    isUserLoggedIn: false,
-    login() {},
-    logout() {}
+  isUserLoggedIn: false,
+  login() {},
+  logout() {},
 });
-AuthContext.displayName = 'AuthContext'
+AuthContext.displayName = "AuthContext";
 
 export default AuthContext;

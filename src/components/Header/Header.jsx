@@ -7,21 +7,21 @@ import Container from "../UI/Container";
 import css from "./Header.module.scss";
 
 function Header() {
-    const history = useHistory()
-  const {isUserLoggedIn, logout} = useContext(AuthContext);
-
+  const history = useHistory();
+  const { isUserLoggedIn, logout } = useContext(AuthContext);
 
   function logoutHandler(e) {
     logout();
-    localStorage.removeItem('token')
-    history.push('/')
-    history.go(0)
+    localStorage.removeItem("token");
+    history.push("/");
+    history.go(0);
   }
   return (
     <header>
       <Container className={css.header}>
         <h2 className={css.logo}>
-          <img className={css.HeaderLogo}
+          <img
+            className={css.HeaderLogo}
             src="https://thumbs.dreamstime.com/b/skill-logo-concept-design-eps-supported-83707473.jpg"
             alt=""
           />
@@ -42,7 +42,11 @@ function Header() {
               Home
             </NavLink>
           )}
-          {isUserLoggedIn && <Button onClick={logoutHandler} AddFocus>Logout</Button>}
+          {isUserLoggedIn && (
+            <Button onClick={logoutHandler} AddFocus>
+              Logout
+            </Button>
+          )}
         </nav>
       </Container>
       <hr className="horizontal line" />

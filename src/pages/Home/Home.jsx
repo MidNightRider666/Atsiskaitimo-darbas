@@ -19,10 +19,8 @@ function Home() {
   async function getSkills() {
     setIsLoading(true);
     const skillFromDB = await getFetch("content/skills");
-    console.log("skillFromDB===", skillFromDB);
     const FailedToken = skillFromDB.err;
     setSkillArr(skillFromDB);
-    console.log("FailedToken===", FailedToken);
     setErrorFromBE(FailedToken);
     setIsLoading(false);
   }
