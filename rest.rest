@@ -14,7 +14,6 @@ Content-Type: application/json
 
 ###
 POST https://autumn-delicate-wilderness.glitch.me/v1/content/skills
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUzLCJlbWFpbCI6ImFzdXNAZW1haWwuY29tIiwiaWF0IjoxNjUwMTI2NjI0fQ.A2807z7182WfskN9xGmmPZhGsV4hSGXhTxa_KiFpwxo
 Content-Type: application/json
 
 {
