@@ -10,6 +10,7 @@ function Header() {
     const history = useHistory()
   const {isUserLoggedIn, logout} = useContext(AuthContext);
 
+
   function logoutHandler(e) {
     logout();
     localStorage.removeItem('token')

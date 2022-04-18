@@ -15,11 +15,9 @@ function App() {
 
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   function login(){
-    console.log('Login');
     setIsUserLoggedIn(true);
   }
   function logout(){
-    console.log('logout');
     setIsUserLoggedIn(false)
   }
 
@@ -45,10 +43,9 @@ function App() {
       <Register />
       </Route>
       <Route path={'/Add'}>
-      {isUserLoggedIn && ( 
+      {isUserLoggedIn ? ( 
       <Add />
-      )}
-      {!isUserLoggedIn && ( 
+      ) : (
       <Home />
       )}
       </Route>

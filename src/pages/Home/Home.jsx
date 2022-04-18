@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CardList from "../../components/CardList/CardList";
 import Button from "../../components/UI/Button/Button";
 import Container from "../../components/UI/Container";
@@ -9,7 +8,6 @@ import { getFetch } from "../../helper/getFect";
 import css from "./Home.module.scss";
 
 function Home() {
-  const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [skillArr, setSkillArr] = useState([]);
   const [errorFromBE, setErrorFromBE] = useState("");

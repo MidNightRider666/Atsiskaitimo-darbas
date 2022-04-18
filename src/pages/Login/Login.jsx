@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/UI/Button/Button'
 import Container from '../../components/UI/Container'
@@ -19,14 +19,6 @@ function Login() {
   const [isError, setisError] = useState(false)
   const [errorObj, seterrorObj] = useState(initErrors)
   const [noAccount, setNoAccount] = useState('')
-   
-useEffect(() => {
-  const isErrorsEmpty = Object.values(errorObj).every((el) => el === '');
-  console.log('isErrorsEmpty===', isErrorsEmpty);
-  if(!isErrorsEmpty) {
-    setisError(true);
-  }
-}, [userEmail, userPassword, errorObj])
 
   async function submitHandler(e) {
     setisError(false);
@@ -51,9 +43,11 @@ useEffect(() => {
    }
    else {
      history.push('/')
-     authCtx.login();
+     authCtx.login()
    }
   }
+
+
 
         return (
   <Container>
