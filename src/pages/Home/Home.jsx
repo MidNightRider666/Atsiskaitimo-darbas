@@ -33,6 +33,7 @@ function Home() {
     setIsLoading(false);
   }
 
+  window.addEventListener("beforeunload", () => localStorage.removeItem('token'));
 
   if(errorFromBE === 'Invalid Token') {
     return (
@@ -40,6 +41,7 @@ function Home() {
     <div className={css.flex}>
     <h1 className={css.noToken}>Skills are only for registered users. If you have an account please log in</h1>
     </div>
+    <h1><img className={css.TokenLogo} src="https://www.logolynx.com/images/logolynx/35/351d1bcd0ac14fd8f1e9ebe2d181ad66.jpeg" alt="" /></h1>
     </Container>
     )
   }
@@ -62,7 +64,7 @@ function Home() {
     )
   }
 
-  if(errorFromBE === undefined) {
+  else {
   return (
     <Container>
     <div className={css.flex}>

@@ -46,7 +46,7 @@ function Add() {
       setisError(true)
     }
     else {
-      history.push('/Home')
+      history.push('/')
     }
    }
 

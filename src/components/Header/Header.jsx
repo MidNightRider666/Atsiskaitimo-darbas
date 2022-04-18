@@ -12,15 +12,15 @@ function Header() {
 
   function logoutHandler(e) {
     logout();
-    window.location.reload();
-    history.push('/')
     localStorage.removeItem('token')
+    history.push('/')
+    history.go(0)
   }
   return (
     <header>
       <Container className={css.header}>
         <h2 className={css.logo}>
-          <img
+          <img className={css.HeaderLogo}
             src="https://thumbs.dreamstime.com/b/skill-logo-concept-design-eps-supported-83707473.jpg"
             alt=""
           />
