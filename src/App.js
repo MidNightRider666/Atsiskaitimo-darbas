@@ -45,7 +45,12 @@ function App() {
       <Register />
       </Route>
       <Route path={'/Add'}>
-        <Add />
+      {isUserLoggedIn && ( 
+      <Add />
+      )}
+      {!isUserLoggedIn && ( 
+      <Home />
+      )}
       </Route>
       <Route path={'*'}>
         <NotFound />
