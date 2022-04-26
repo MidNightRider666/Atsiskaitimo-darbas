@@ -14,16 +14,3 @@ export async function getFetch(resource) {
 }
 }
 
-
-// export async function getFetch(resource) {
-//   try {
-//     const token = localStorage.getItem("token");
-//     const resp = await fetch(`${process.env.REACT_APP_MY_CODE}/${resource}`, {
-//       headers: { Authorization: `Bearer ${token}` },
-//     });
-//     const usersFromApi = await resp.json();
-//     return usersFromApi;
-//   } catch (error) {
-//     return false;
-//   }
-// }
