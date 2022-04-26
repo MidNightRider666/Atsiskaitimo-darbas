@@ -14,8 +14,8 @@ const initErrors = {
 function Login() {
   const authCtx = useContext(AuthContext);
   const history = useHistory();
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [userEmail, setUserEmail] = useState("yesing@gmail.com");
+  const [userPassword, setUserPassword] = useState("labas");
   const [isError, setisError] = useState(false);
   const [errorObj, seterrorObj] = useState(initErrors);
   const [noAccount, setNoAccount] = useState("");

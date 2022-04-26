@@ -10,7 +10,7 @@ import css from "./Home.module.scss";
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [skillArr, setSkillArr] = useState([]);
-  const [errorFromBE, setErrorFromBE] = useState("");
+  // const [errorFromBE, setErrorFromBE] = useState("");
 
   useEffect(() => {
     getSkills();
@@ -19,17 +19,17 @@ function Home() {
   async function getSkills() {
     setIsLoading(true);
     const skillFromDB = await getFetch("content/skills");
-    const FailedToken = skillFromDB.err;
+    // const FailedToken = skillFromDB.err;
     setSkillArr(skillFromDB);
-    setErrorFromBE(FailedToken);
+    // setErrorFromBE(FailedToken);
     setIsLoading(false);
   }
-
   window.addEventListener("beforeunload", () =>
     localStorage.removeItem("token")
   );
 
-  if (errorFromBE === "Invalid Token") {
+  // if (errorFromBE === 'Invalid Token') 
+  if (localStorage.getItem("token") === null) {
     return (
       <Container>
         <div className={css.flex}>
