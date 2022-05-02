@@ -38,7 +38,7 @@ function Home() {
           <img
             className={css.TokenLogo}
             src="https://www.logolynx.com/images/logolynx/35/351d1bcd0ac14fd8f1e9ebe2d181ad66.jpeg"
-            alt=""
+            alt="Error img"
           />
         </h1>
       </Container>
